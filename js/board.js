@@ -23,7 +23,7 @@ image.src = 'sprite.png';
 /*
  Require Animation.js
  */
-var a = new Animation(100, 100, ctx, image, 4, fps);
+var a = new Animation(500, 500, ctx, image, 4, fps);
 a.start();
 /*
  UI Control Logic
