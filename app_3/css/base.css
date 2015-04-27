@@ -87,3 +87,27 @@ footer{
     background: #fff;
     color: #000;
 }
+
+.input-register {
+    height: 40px;
+    border-radius: 2px;
+    border: 1px solid #000;
+}
+
+.input-register:focus {
+    border: 1px solid #000;
+}
+
+.btn-register {
+    height: 40px;
+    border-radius: 2px;
+    width: 100px;
+    color: #fff;
+    background: #000;
+    text-transform: uppercase;
+}
+
+.btn-register:hover {
+    background: #fff;
+    color: #000;
+}

@@ -1,10 +1,11 @@
 var app = app || {};
 
+app.ref = new Firebase("https://poseboards.firebaseio.com");
+
 app.Login = Backbone.View.extend({
 	el: '.container-login',
 	initialize: function() {
-		var ref = new Firebase("https://poseboards.firebaseio.com");
-		ref.onAuth(function(authData) {
+		app.ref.onAuth(function(authData) {
 		  if (authData) {
 		    console.log("Authenticated with uid:", authData.uid);
 		  } else {
@@ -16,12 +17,11 @@ app.Login = Backbone.View.extend({
 		'click .btn-login' : 'login'
 	},
 	login: function(e) {
-		e.preventDefault();
-		var ref = new Firebase("https://poseboards.firebaseio.com");
+		e.preventDefault();	
 		var email = $('#login-email').val();
 		var password = $('#login-password').val();
 
-		ref.authWithPassword({
+		app.ref.authWithPassword({
 		  email    : email,
 		  password : password
 		}, function(error, authData) {
