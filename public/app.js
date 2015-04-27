@@ -9,7 +9,7 @@ app.set('view engine', 'jade');
 
 
 app.get('/', function(req, res){
-   res.render('layout.jade');
+   res.render('pages/index.jade');
 });
 
 app.listen(3000, function(){

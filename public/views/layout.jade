@@ -1,6 +1,8 @@
-doctpye html
+doctype html
 html
-    include ../views/partials/pb-head.html
-        body
-            block.content
-                p.lead hello world
+    head
+        block title
+            title Default title
+            include ./partials/pb-head.html
+    body
+        block content
