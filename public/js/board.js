@@ -14,7 +14,7 @@ var fps = (1000 / 10);
  Define the image
  */
 var image = new Image();
-image.src = 'sprite.png';
+image.src = '/imgs/sprite.png';
 
 
 
@@ -23,7 +23,7 @@ image.src = 'sprite.png';
 /*
  Require Animation.js
  */
-var a = new Animation(500, 500, ctx, image, 4, fps);
+var a = new Animation(100, 100, ctx, image, 4, fps);
 a.start();
 /*
  UI Control Logic
