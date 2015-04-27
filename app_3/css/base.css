@@ -63,3 +63,22 @@ footer{
 .btn{
     padding: 10px 10px 10px 10px;
 }
+
+.input-login {
+    height: 40px;
+    border-radius: 2px;
+}
+
+.btn-login {
+    height: 40px;
+    border-radius: 2px;
+    width: 100px;
+    color: #fff;
+    background: #000;
+    text-transform: uppercase;
+}
+
+.btn-login:hover {
+    background: #fff;
+    color: #000;
+}
