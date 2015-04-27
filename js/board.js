@@ -14,7 +14,7 @@ var fps = (1000 / 10);
  Define the image
  */
 var image = new Image();
-image.src = 'upload.png';
+image.src = 'sprite.png';
 
 
 
