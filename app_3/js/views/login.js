@@ -14,7 +14,8 @@ app.Login = Backbone.View.extend({
 		});
 	},
 	events: {
-		'click .btn-login' : 'login'
+		'click .btn-login' : 'login',
+		'click .btn-register' : 'register'
 	},
 	login: function(e) {
 		e.preventDefault();	
@@ -32,6 +33,32 @@ app.Login = Backbone.View.extend({
 			  }
 		});
 
+	},
+	register: function(e) {
+		e.preventDefault();	
+		console.log('!!!!!!!!!!!!');
+		var email = $('#register-email').val();
+		var password = $('#register-password').val();
+
+		app.ref.createUser({
+		  email: email,
+		  password: password
+		}, function(error, userData) {
+		  if (error) {
+		    switch (error.code) {
+		      case "EMAIL_TAKEN":
+		        console.log("The new user account cannot be created because the email is already in use.");
+		        break;
+		      case "INVALID_EMAIL":
+		        console.log("The specified email is not a valid email.");
+		        break;
+		      default:
+		        console.log("Error creating user:", error);
+		    }
+		  } else {
+		    console.log("Successfully created user account with uid:", userData.uid);
+		  }
+		});
 	},
 });
 
