@@ -1,9 +1,16 @@
 var express = require('express');
 var app = express();
+var ejs = require('ejs');
+
+
+app.set('views', __dirname + '/views');
+app.engine('html', require('ejs').renderFile);
+
+app.set('view engine', 'ejs');
 
 
 app.get('/', function(req, res){
-   res.send('Hello Express');
+   res.render('pages/index.ejs');
 });
 
 app.listen(3000, function(){
