@@ -1,16 +1,15 @@
 var express = require('express');
 var app = express();
-var ejs = require('ejs');
-
+var jade = require('jade');
 
 app.set('views', __dirname + '/views');
-app.engine('html', require('ejs').renderFile);
+app.engine('html', require('jade').renderFile);
 
-app.set('view engine', 'ejs');
+app.set('view engine', 'jade');
 
 
 app.get('/', function(req, res){
-   res.render('layout.ejs');
+   res.render('pages/index.jade');
 });
 
 app.listen(3000, function(){
