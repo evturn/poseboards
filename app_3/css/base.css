@@ -67,6 +67,11 @@ footer{
 .input-login {
     height: 40px;
     border-radius: 2px;
+    border: 1px solid #000;
+}
+
+.input-login:focus {
+    border: 1px solid #000;
 }
 
 .btn-login {
