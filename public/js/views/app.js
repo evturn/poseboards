@@ -6,6 +6,7 @@ app.App = Backbone.View.extend({
 		app.Ref.onAuth(function(authData) {
 		  if (authData) {
 		    console.log("app.js says: Authenticated with uid:", authData.uid);
+		    var data = authData.password;
 		    this.setClient();	
 		  } else {
 		    console.log("app.js says: Client unauthenticated.")

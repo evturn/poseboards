@@ -6,7 +6,7 @@ app.refUsers = app.Ref + '/users';
 
 // backbone
 app.users = new app.Users();
-new app.App();
+new app.App({collection: app.users});
 new app.Form();
 
 
