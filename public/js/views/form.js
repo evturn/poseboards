@@ -1,8 +1,12 @@
 var app = app || {};
 
 app.ref = new Firebase("https://poseboards.firebaseio.com");
+app.refUsers = app.ref + '/users';
+var usersCollection = new app.Users();
+usersCollection.fetch();
+console.log(usersCollection);
 
-app.Login = Backbone.View.extend({
+app.Form = Backbone.View.extend({
 	el: '.container-login',
 	initialize: function() {
 		app.ref.onAuth(function(authData) {
@@ -39,7 +43,7 @@ app.Login = Backbone.View.extend({
 		console.log('User has registered!');
 		var email = $('#register-email').val();
 		var password = $('#register-password').val();
-
+		
 		app.ref.createUser({
 		  email: email,
 		  password: password
@@ -57,9 +61,16 @@ app.Login = Backbone.View.extend({
 		    }
 		  } else {
 		    console.log("Successfully created user account with uid:", userData.uid);
+		    usersCollection.push({
+		    	email: email,
+		    	password: password,
+		    	refId: userData.uid
+		    })
+		  	
 		  }
+		  
 		});
 	},
 });
 
-new app.Login();
+new app.Form();
