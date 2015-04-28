@@ -2,8 +2,10 @@ var express = require('express'),
     app = express();
 var router = express.Router();
 
+
 /*
 User Routes
+Gets the .jade file and then calls the html
  */
 
 router.get('/', function(req, res){

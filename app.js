@@ -1,14 +1,14 @@
 var express = require('express');
 var app = express();
 var jade = require('jade');
-var routes = require('./routes/router.js');
+var routes = require('./public/routes/router');
 
 /*
-View Engine
+ View Engine
  */
+app.set('public', '/public');
 app.set('views', __dirname + '/views')
 app.set('view engine', 'jade')
-
 /*
 Routes
  */
@@ -17,10 +17,7 @@ app.use('/login', routes);
 app.use('/register', routes);
 app.use('/gen', routes);
 app.use('/browse', routes);
-/*
-Access public directory
- */
-app.use('/public', express.static('public'));
+
 /**
  * Log server
  */
