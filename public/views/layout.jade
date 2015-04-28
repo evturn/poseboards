@@ -2,9 +2,9 @@ doctype html
 html(lang='en')
   head
     include dependencies/head.html
-  body.container
+  body.container.app-container
     include partials/nav.html
     block content
-    include dependencies/libs.html
   
     include partials/footer.html
+    include dependencies/libs.html
