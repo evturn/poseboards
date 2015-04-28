@@ -14,6 +14,7 @@ Routes
  */
 app.use('/', routes);
 app.use('/login', routes);
+app.use('/register', routes);
 /*
 Access public directory
  */
