@@ -4,7 +4,6 @@
   "description": "Poseboards",
   "main": "app.js",
   "dependencies": {
-    "ejs": "^2.3.1",
     "express": "^4.12.3",
     "jade": "^1.9.2"
   },

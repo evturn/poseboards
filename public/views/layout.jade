@@ -1,8 +1,10 @@
 doctype html
-html
-    head
-        block title
-            title Default title
-            include ./partials/pb-head.html
-    body
-        block content
+html(lang='en')
+  head
+    include dependencies/head.html
+  body
+    include partials/nav.html
+    block content
+    include dependencies/libs.html
+    footer
+      include partials/footer.html

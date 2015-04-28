@@ -8,3 +8,18 @@ canvas {
     display: block;
     border:2px solid #000000;
 }
+
+.container-main{
+    background: #fff;
+    margin-top: 80px;
+    padding: 0 30px 30px 30px;
+    margin-bottom: 80px;
+}
+body{
+    padding-top: 60px;
+    padding-bottom: 0px;
+    font-family: 'Open Sans', Arial, Tahoma;
+    color: #363636;
+    background: #ededed;
+    font-size: 16px;
+}
