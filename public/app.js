@@ -22,5 +22,5 @@ app.use('/public', express.static('public'));
  * Log server
  */
 app.listen(3000, function(){
-   console.log("SERVER");
+   console.log("Server is running on port: 3000");
 })

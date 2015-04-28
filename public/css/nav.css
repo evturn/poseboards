@@ -1,0 +1,9 @@
+.navbar {
+    color: #fff;
+    background: #292929;
+    height: 50px;
+    border-color: #606060;
+}
+.navbar-inverse .navbar-nav > .active > a{
+    background: #233146;
+}

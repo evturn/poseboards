@@ -46,15 +46,6 @@ footer{
     margin-top: 10px;
     background: #e8e8e8;
 }
-.navbar {
-    color: #fff;
-    background: #292929;
-    height: 50px;
-    border-color: #606060;
-}
-.navbar-inverse .navbar-nav > .active > a{
-    background: #233146;
-}
 
 .submit-button{
     width: 100%;
