@@ -1,3 +1,6 @@
+html,body{
+    height: 100%
+}
 .container-main{
     background: #fff;
     margin-top: 80px;
@@ -27,13 +30,7 @@ h1{
     padding: 10px 10px 10px 10px;
     border-radius:1px;
 }
-footer{
-    background: #606060;
-    color: #fff;
-    text-align: center;
-    padding-top: 20px;
-    padding-bttom: 20px;
-}
+
 
 .jumbotron{
     background: #11272f;
