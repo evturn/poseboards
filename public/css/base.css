@@ -36,9 +36,10 @@ footer{
 }
 
 .jumbotron{
-    background: #c6c6c6;
+    background: #11272f;
     margin-top: 10px;
-    border-radius: 1px;
+    border-radius: 0.1px;
+    color: #fff;
 }
 
 .media{
