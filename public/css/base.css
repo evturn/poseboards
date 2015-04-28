@@ -1,27 +1,21 @@
-canvas {
-    padding-left: 0;
-    padding-right: 0;
-    padding-bottom: 0;
-    margin-bottom: 50px;
-    margin-left: auto;
-    margin-right: auto;
-    display: block;
-    border:2px solid #000000;
-}
-
-.container-main{
-    background: #fff;
-    margin-top: 80px;
-    padding: 0 30px 30px 30px;
-    margin-bottom: 80px;
-}
 body{
-    padding-top: 20px;
-    padding-bottom: 30px;
+    padding-bottom: 0px;
     font-family: 'Open Sans', Arial, Tahoma;
     color: #363636;
     background: #ededed;
     font-size: 16px;
+}
+h2{
+    font-weight: 700;
+    text-transform:uppercase;
+    line-height:1.4em;
+    font-size:1.5em;
+}
+h1{
+    color: #3b5a76;
+}
+.row{
+    margin-bottom: 20px;
 }
 footer{
     background: #606060;
@@ -29,4 +23,8 @@ footer{
     text-align: center;
     padding-top: 20px;
     padding-bttom: 20px;
+}
+
+.jumbotron{
+    margin-top: 10px !important;
 }
