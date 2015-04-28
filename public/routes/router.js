@@ -26,4 +26,8 @@ router.get('/gen', function(req, res){
     res.render('pages/generatedPage');
 });
 
+router.get('/browse', function(req, res){
+    res.render('pages/filer');
+});
+
 module.exports = router;

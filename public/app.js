@@ -16,6 +16,7 @@ app.use('/', routes);
 app.use('/login', routes);
 app.use('/register', routes);
 app.use('/gen', routes);
+app.use('/browse', routes);
 /*
 Access public directory
  */
