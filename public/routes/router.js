@@ -2,10 +2,8 @@ var express = require('express'),
     app = express();
 var router = express.Router();
 
-
 /*
-User Routes
-Gets the .jade file and then calls the html
+ User Routes
  */
 
 router.get('/', function(req, res){
@@ -21,7 +19,7 @@ router.get('/register', function(req, res){
 });
 
 /*
-Data Generated
+ Data Generated
  */
 
 router.get('/gen', function(req, res){
@@ -30,6 +28,10 @@ router.get('/gen', function(req, res){
 
 router.get('/browse', function(req, res){
     res.render('pages/filer');
+});
+
+router.get('/upload', function(req, res){
+    res.render('pages/userUploader');
 });
 
 module.exports = router;
