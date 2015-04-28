@@ -12,8 +12,11 @@ app.Form = Backbone.View.extend({
 		app.ref.onAuth(function(authData) {
 		  if (authData) {
 		    console.log("Authenticated with uid:", authData.uid);
+		    $('#user-nav').html('Tom Myspace');
 		  } else {
 		    console.log("Client unauthenticated.")
+		    $('#user-nav').html('Login/Register');
+		    $('#user-nav').attr('href', '/login');
 		  }
 		});
 	},
