@@ -20,6 +20,12 @@ app.App = Backbone.View.extend({
 		'click #user-logout'	: 'logout'
 	},
 	setClient: function() {
+		app.Ref.on("value", function(snapshot) {
+  		console.log(snapshot.val());
+  		var snapshot = snapshot.val();
+		}, function (errorObject) {
+  		console.log("The read failed: " + errorObject.code);
+		});
 		var username = 'Tom Jones';
     $('#user-nav').html(username);
     $('#user-logout').html('Logout');
