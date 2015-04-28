@@ -1,3 +1,9 @@
+.container-main{
+    background: #fff;
+    margin-top: 80px;
+    padding: 0 30px 30px 30px;
+    margin-bottom: 80px;
+}
 body{
     padding-bottom: 0px;
     font-family: 'Open Sans', Arial, Tahoma;
@@ -17,6 +23,10 @@ h1{
 .row{
     margin-bottom: 20px;
 }
+.btn{
+    padding: 10px 10px 10px 10px;
+    border-radius:1px;
+}
 footer{
     background: #606060;
     color: #fff;
@@ -26,5 +36,7 @@ footer{
 }
 
 .jumbotron{
-   margin-bottom: 20px;
+    background: #c6c6c6;
+    margin-top: 10px;
+    border-radius: 1px;
 }
