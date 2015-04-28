@@ -3,7 +3,7 @@ body{
     font-family: 'Open Sans', Arial, Tahoma;
     color: #363636;
     background: #ededed;
-    font-size: 16px;
+    font-size: 13px;
 }
 h2{
     font-weight: 700;
@@ -26,5 +26,5 @@ footer{
 }
 
 .jumbotron{
-    margin-top: 10px !important;
+   margin-bottom: 20px;
 }
