@@ -15,6 +15,7 @@ app.set('view engine', 'jade')
 app.use('/', routes);
 app.use('/login', routes);
 app.use('/register', routes);
+app.use('/profile', routes);
 app.use('/gen', routes);
 app.use('/browse', routes);
 app.use('/upload', routes);
