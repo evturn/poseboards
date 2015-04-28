@@ -33,10 +33,11 @@ h1{
 
 
 .jumbotron{
-    background: #11272f;
+    background: #f9a312;
     margin-top: 10px;
-    border-radius: 0.1px;
-    color: #fff;
+    border-radius: 1.1px;
+    color: #2f2202;
+    opacity: 0.7;
 }
 
 .media{
