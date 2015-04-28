@@ -36,7 +36,7 @@ app.Login = Backbone.View.extend({
 	},
 	register: function(e) {
 		e.preventDefault();	
-		console.log('!!!!!!!!!!!!');
+		console.log('User has registered!');
 		var email = $('#register-email').val();
 		var password = $('#register-password').val();
 
