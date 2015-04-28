@@ -10,19 +10,26 @@ app.App = Backbone.View.extend({
 		  } else {
 		    console.log("app.js says: Client unauthenticated.")
 		    $('#user-nav').html('Login/Register');
+		    $('#user-logout').hide();
 		    $('#user-nav').attr('href', '/login');
 		  }
 		}.bind(this));
 	},
 	events: {
-		'click #user-nav' : 'renderForm'
+		'click #user-nav' 		: 'renderForm',
+		'click #user-logout'	: 'logout'
 	},
 	setClient: function() {
 		var username = 'Tom Jones';
     $('#user-nav').html(username);
+    $('#user-logout').html('Logout');
     $('#user-nav').attr('href', '/');
+    $('#user-logout').show();
 	},
 	renderForm: function() {
 		new app.Form();
+	},
+	logout: function() {
+		app.Ref.unauth();
 	},
 });

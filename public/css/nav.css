@@ -7,3 +7,7 @@
 .navbar-inverse .navbar-nav > .active > a{
     background: #233146;
 }
+
+#user-logout {
+	cursor: pointer;
+}
