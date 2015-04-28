@@ -6,7 +6,6 @@ var routes = require('./public/routes/router');
 /*
  View Engine
  */
-app.set('public', '/public');
 app.set('views', __dirname + '/views')
 app.set('view engine', 'jade')
 /*
@@ -17,6 +16,9 @@ app.use('/login', routes);
 app.use('/register', routes);
 app.use('/gen', routes);
 app.use('/browse', routes);
+
+
+app.use('public', express.static('/public'));
 
 /**
  * Log server
