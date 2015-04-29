@@ -44,8 +44,9 @@ app.Auth = Backbone.View.extend({
 		  } else {
 		    console.log("Successfully created user account with uid:", userData.uid);
 		    var username = $('#register-username').val();
-		    var ref = new Firebase("https://poseboards.firebaseio.com/users/" + username);
+		    var ref = new Firebase("https://poseboards.firebaseio.com/users/");
 		    var user = ref.push({
+		    	username: username,
 		    	email: email,
 		    	password: password,
 		    	uid: userData.uid
@@ -60,7 +61,7 @@ app.Auth = Backbone.View.extend({
 		var email 	 = $('#login-email').val();
 		var password = $('#login-password').val();
 
-		ref.authWithPassword({
+		var user = ref.authWithPassword({
 		  email    : email,
 		  password : password
 		}, function(error, authData) {
@@ -69,8 +70,17 @@ app.Auth = Backbone.View.extend({
 			    $('.register-error').text("Incorrect email or password");
 			  } else {
 			    console.log("Authenticated successfully with payload:", authData);
-			    
+			 		console.log(authData.uid);
+			 		console.log(authData.token);
+			   this.findUser(authData.uid);
 			  }
+		}.bind(this));
+	},
+	findUser: function(id) {
+		console.log(id);
+		var ref = new Firebase("https://poseboards.firebaseio.com/users");
+		ref.on('value', function(dataSnapshot) {
+			var currentUser = dataSnapshot.val();
 		});
 	},
 });
