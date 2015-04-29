@@ -31,5 +31,5 @@ app.use('/upload', routes);
  * Log server
  */
 app.listen(3000, function(){
-    console.log("Server is running on port: Tré-th000usand");
+    console.log("Server is running on port: Andre Tré-th000usand");
 })
