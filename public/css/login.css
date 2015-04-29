@@ -47,3 +47,8 @@
     margin-top: 10px;
     font-size: 14px;
 }
+
+.register-error {
+    color: red;
+    font-weight: bold;
+}
