@@ -29,7 +29,7 @@ app.Form = Backbone.View.extend({
 		var email = $('#register-email').val();
 		var password = $('#register-password').val();
 		var username = $('#register-username').val();
-		app.Ref.createUser({
+		ref.createUser({
 		  email: email,
 		  password: password
 		}, function(error, userData) {
@@ -51,7 +51,7 @@ app.Form = Backbone.View.extend({
 		    }
 		  } else {
 		    console.log("form.js says: Successfully created user account with uid:", userData.uid);
-		    var user = app.RefUsers.push({
+		    var user = refUsers.push({
 		    	username: username,
 		    	email: email,
 		    	password: password

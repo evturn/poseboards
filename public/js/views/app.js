@@ -3,7 +3,7 @@ var app = app || {};
 app.App = Backbone.View.extend({
 	el: '.app-container',
 	initialize: function() {
-		app.Ref.onAuth(function(authData) {
+		ref.onAuth(function(authData) {
 		  if (authData) {
 		    console.log("app.js says: Authenticated with uid:", authData.uid);
 		    console.log(authData)
@@ -21,7 +21,7 @@ app.App = Backbone.View.extend({
 		'click #user-logout'	: 'logout'
 	},
 	setClient: function() {
-		app.Ref.on("value", function(snapshot) {
+		ref.on("value", function(snapshot) {
   		console.log(snapshot.val());
   		var snapshot = snapshot.val();
 
@@ -38,6 +38,6 @@ app.App = Backbone.View.extend({
 		new app.Form();
 	},
 	logout: function() {
-		app.Ref.unauth();
+		ref.unauth();
 	},
 });
