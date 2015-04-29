@@ -1,8 +1,8 @@
 var app = app || {};
 
 // firebase
-app.Ref 		 = new Firebase("https://poseboards.firebaseio.com");
-app.RefUsers = new Firebase("https://poseboards.firebaseio.com/users");
+var ref 		 = new Firebase("https://poseboards.firebaseio.com");
+var refUsers = new Firebase("https://poseboards.firebaseio.com/users");
 
 // backbone
 new app.App();
