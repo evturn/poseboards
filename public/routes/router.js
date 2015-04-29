@@ -26,6 +26,9 @@ router.post('/register', function(req, res) {
 /*
  Data Generated
  */
+router.get('/profile', function(req, res){
+   res.render('pages/userProfile');
+});
 
 router.get('/gen', function(req, res){
     res.render('pages/generatedPage');
