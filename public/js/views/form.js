@@ -51,11 +51,13 @@ app.Form = Backbone.View.extend({
 		    }
 		  } else {
 		    console.log("form.js says: Successfully created user account with uid:", userData.uid);
-		    app.users.push({
+		    var user = app.RefUsers.push({
 		    	username: username,
 		    	email: email,
 		    	password: password
 		    });
+		    console.log(user);
+		    console.log(user.key());
 		    window.location = '/login';
 		  }
 		});

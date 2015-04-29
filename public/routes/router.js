@@ -1,5 +1,6 @@
 var express = require('express'),
     app = express();
+var Firebase = require('firebase');
 var router = express.Router();
 
 /*
@@ -16,6 +17,10 @@ router.get('/login', function(req, res){
 
 router.get('/register', function(req, res){
     res.render('pages/register');
+});
+
+router.post('/register', function(req, res) {
+
 });
 
 /*

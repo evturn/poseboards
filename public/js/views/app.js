@@ -6,8 +6,8 @@ app.App = Backbone.View.extend({
 		app.Ref.onAuth(function(authData) {
 		  if (authData) {
 		    console.log("app.js says: Authenticated with uid:", authData.uid);
-		    var data = authData.password;
-		    this.setClient();	
+		    console.log(authData)
+		    this.setClient();
 		  } else {
 		    console.log("app.js says: Client unauthenticated.")
 		    $('#user-nav').html('Login/Register');
@@ -24,6 +24,7 @@ app.App = Backbone.View.extend({
 		app.Ref.on("value", function(snapshot) {
   		console.log(snapshot.val());
   		var snapshot = snapshot.val();
+
 		}, function (errorObject) {
   		console.log("The read failed: " + errorObject.code);
 		});

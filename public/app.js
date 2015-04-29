@@ -1,6 +1,7 @@
 var express = require('express');
 var app = express();
 var jade = require('jade');
+var Firebase = require('firebase');
 var routes = require('./routes/router.js');
 
 /*
@@ -22,6 +23,11 @@ app.use('/upload', routes);
  Access public directory
  */
 app.use('/public', express.static('public'));
+
+
+
+
+
 /**
  * Log server
  */
