@@ -23,9 +23,7 @@ function checkAuth() {
 	var authData = ref.getAuth();
 		if (authData) {
 		  console.log("Authenticated user with uid:", authData.uid);
-		  checkValue(authData.uid);
-		  console.log(authData);
-	    // $('.btn-nav-profile').html();
+		  var username = checkValue(authData.uid);
 	    $('.btn-nav-logout').html('Logout');
 	    $('.btn-nav-profile').attr('href', '/');
 	    $('.btn-nav-logout').show();
@@ -48,7 +46,7 @@ function checkValue(uid) {
 	  var generatedUser = new Firebase("https://poseboards.firebaseio.com/users/" + uid + '/' + key + '/');
 	  generatedUser.on('value', function(dataSnapshot) {
 			var user = dataSnapshot.val();
-			console.log(user.username);
+			$('.btn-nav-profile').html(user.username);
 		});
 	});
 }
