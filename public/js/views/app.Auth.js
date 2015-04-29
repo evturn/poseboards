@@ -9,8 +9,9 @@ app.Auth = Backbone.View.extend({
 		this.registerForm();
 	},
 	events: {
-		'click .btn-register' : 'register',
-		'click .btn-login'		: 'login'
+		'click .btn-register' 	: 'register',
+		'click .btn-login'			: 'login',
+		'click .btn-nav-logout'	: 'logout'
 	},
 	registerForm: function() {
 		$('.container-form').html(this.registerTemplate());
@@ -45,12 +46,11 @@ app.Auth = Backbone.View.extend({
 		  } else {
 		    console.log("Successfully created user account with uid:", userData.uid);
 		    var username = $('#register-username').val();
-		    var ref = new Firebase("https://poseboards.firebaseio.com/users/");
+		    var ref = new Firebase("https://poseboards.firebaseio.com/users/" + userData.uid);
 		    var user = ref.push({
 		    	username: username,
 		    	email: email,
-		    	password: password,
-		    	uid: userData.uid
+		    	password: password
 		    });
 		    console.log(user.key());
 		    this.loginForm();
