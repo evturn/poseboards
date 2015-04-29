@@ -44,5 +44,11 @@ function checkValue(uid) {
 		for (var prop in user) {
   		var key = prop;
   	}
+  	console.log(key);
+	  var generatedUser = new Firebase("https://poseboards.firebaseio.com/users/" + uid + '/' + key + '/');
+	  generatedUser.on('value', function(dataSnapshot) {
+			var user = dataSnapshot.val();
+			console.log(user.username);
+		});
 	});
 }
