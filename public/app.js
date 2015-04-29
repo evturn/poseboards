@@ -22,7 +22,7 @@ app.use('/upload', routes);
 /*
  Access public directory
  */
-//app.use('/public', express.static('public'));
+app.use('/public', express.static('public'));
 /**
  * Log server
  */
