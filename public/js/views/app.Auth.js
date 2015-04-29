@@ -2,8 +2,22 @@ var app = app || {};
 
 app.Auth = Backbone.View.extend({
 	el: '.app-container',
+	loginTemplate: _.template($('#form-login-template').html()),
+	registerTemplate: _.template($('#form-register-template').html()),
+	initialize: function() {
+		this.registerForm();
+	},
 	events: {
-		'click .btn-register' : 'register'
+		'click .btn-register' : 'register',
+		'click .btn-login'		: 'login'
+	},
+	registerForm: function() {
+		$('.container-form').html(this.registerTemplate());
+		return this;
+	},
+	loginForm: function() {
+		$('.container-form').html(this.loginTemplate());
+		return this;
 	},
 	register: function(e) {
 		e.preventDefault();	
@@ -36,10 +50,27 @@ app.Auth = Backbone.View.extend({
 		    	password: password,
 		    	uid: userData.uid
 		    });
-		    
 		    console.log(user.key());
-		    // window.location = '/login';
+		    this.loginForm();
 		  }
-		})
+		}.bind(this))
+	},
+	login: function(e) {
+		e.preventDefault();	
+		var email 	 = $('#login-email').val();
+		var password = $('#login-password').val();
+
+		ref.authWithPassword({
+		  email    : email,
+		  password : password
+		}, function(error, authData) {
+			  if (error) {
+			    console.log("Login Failed!", error);
+			    $('.register-error').text("Incorrect email or password");
+			  } else {
+			    console.log("Authenticated successfully with payload:", authData);
+			    
+			  }
+		});
 	},
 });
