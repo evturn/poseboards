@@ -1,0 +1,33 @@
+ ----------
+|POSEBOARDS|
+ -----------
+Overview: Poseboards is an Animation Database / Network for animators to upload and comment on each
+others animation.
+
+=====
+Auth:
+Desc: Gets their information
+=====
+login.jade
+login.html
+
+========
+Uploader:
+Desc: This lets the user take their animation and save it to their account / database
+========
+userUploader.jade
+userUploader.html
+
+======
+Filer:
+Desc: Files the user submitted animation into a table where others can browse through
+======
+filer.jade
+filer.html
+
+===============
+Generated Page:
+Desc: This has the animation playing from the submitted user and a space for user comments
+===============
+generatedPage.jade
+generatedPage.html
