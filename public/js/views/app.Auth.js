@@ -5,6 +5,7 @@ app.Auth = Backbone.View.extend({
 	loginTemplate: _.template($('#form-login-template').html()),
 	registerTemplate: _.template($('#form-register-template').html()),
 	initialize: function() {
+		checkAuth();
 		this.registerForm();
 	},
 	events: {
@@ -82,5 +83,9 @@ app.Auth = Backbone.View.extend({
 		ref.on('value', function(dataSnapshot) {
 			var currentUser = dataSnapshot.val();
 		});
+		window.location = '/profile';
+	},
+	logout: function() {
+		ref.unauth();
 	},
 });
