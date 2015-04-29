@@ -14,7 +14,7 @@ ref.onAuth(function(authData) {
     console.log("Client unauthenticated.");
     $('.btn-nav-profile').html('Login/Register');
     $('.btn-nav-logout').hide();
-    $('.btn-nav-profile').attr('href', '/profile');
+    $('.btn-nav-profile').attr('href', '/register');
   }
 });
 
@@ -25,12 +25,12 @@ function checkAuth() {
 		  console.log("Authenticated user with uid:", authData.uid);
 		  var username = checkValue(authData.uid);
 	    $('.btn-nav-logout').html('Logout');
-	    $('.btn-nav-profile').attr('href', '/');
+	    $('.btn-nav-profile').attr('href', '/profile');
 	    $('.btn-nav-logout').show();
 		} else {
 	    $('.btn-nav-profile').html('Login/Register');
 	    $('.btn-nav-logout').hide();
-	    $('.btn-nav-profile').attr('href', '/profile');
+	    
 		}
 }
 
@@ -38,7 +38,6 @@ function checkValue(uid) {
 	var currentUser = new Firebase("https://poseboards.firebaseio.com/users/" + uid);
 	currentUser.on('value', function(dataSnapshot) {
 		var user = dataSnapshot.val();
-		console.log(user);
 		for (var prop in user) {
   		var key = prop;
   	}
