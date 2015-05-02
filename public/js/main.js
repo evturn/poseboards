@@ -10,29 +10,20 @@ var auth = new app.Auth();
 ref.onAuth(function(authData) {
   if (authData) {
     console.log("Authenticated with uid:", authData.uid);
+	  var username = checkValue(authData.uid);
+    $('.btn-nav-logout').show();
+    $('.btn-nav-profile').show();
+    $('.btn-nav-register').hide();
+    $('.btn-nav-login').hide();
   } else {
     console.log("Client unauthenticated.");
-    $('.btn-nav-profile').html('Login/Register');
+    $('.btn-nav-profile').hide();
     $('.btn-nav-logout').hide();
-    $('.btn-nav-profile').attr('href', '/register');
+    $('.btn-nav-login').show();
+    $('.btn-nav-register').show();
   }
 });
 
-
-function checkAuth() {
-	var authData = ref.getAuth();
-		if (authData) {
-		  console.log("Authenticated user with uid:", authData.uid);
-		  var username = checkValue(authData.uid);
-	    $('.btn-nav-logout').html('Logout');
-	    $('.btn-nav-profile').attr('href', '/profile');
-	    $('.btn-nav-logout').show();
-		} else {
-	    $('.btn-nav-profile').html('Login/Register');
-	    $('.btn-nav-logout').hide();
-	    
-		}
-}
 
 function checkValue(uid) {
 	var currentUser = new Firebase("https://poseboards.firebaseio.com/users/" + uid);

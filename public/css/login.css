@@ -29,7 +29,7 @@
     width: 100%;
 }
 
-.btn-login, .btn-register {
+.btn-form-login, .btn-form-register {
 
     height: 40px;
     border-radius: 2px;
@@ -39,7 +39,7 @@
     text-transform: uppercase;
 }
 
-.btn-login:hover, .btn-register:hover {
+.btn-form-login:hover, .btn-form-register:hover {
     background: #fff;
     color: #000;
 }
