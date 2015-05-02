@@ -5,7 +5,11 @@ var ref 		 = new Firebase("https://poseboards.firebaseio.com");
 var refUsers = new Firebase("https://poseboards.firebaseio.com/users");
 
 // backbone
-var auth = new app.Auth();
+auth = new app.Auth();
+
+var router = new app.Router();
+Backbone.history.start();
+
 
 ref.onAuth(function(authData) {
   if (authData) {
@@ -23,7 +27,6 @@ ref.onAuth(function(authData) {
     $('.btn-nav-register').show();
   }
 });
-
 
 function checkValue(uid) {
 	var currentUser = new Firebase("https://poseboards.firebaseio.com/users/" + uid);

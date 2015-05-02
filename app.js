@@ -20,7 +20,6 @@ app.use(logger('dev'));
  Routes
  */
 app.use('/', routes);
-app.use('/login', routes);
 app.use('/register', routes);
 app.use('/profile', routes);
 app.use('/gen', routes);

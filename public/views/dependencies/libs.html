@@ -1,42 +1,68 @@
+<script type="text/template" id="home-template">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h3 class="panel-title">Explore</h3>
+    </div>
+    <div class="panel-body">
+      <div class = "jumbotron">
+        <h1>Poseboards</h1>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas bibendum ut odio eu venenatis. Sed efficitur vulputate urna eu egestas. Ut eget egestas nisi. Vivamus hendrerit nisl est. In auctor tincidunt massa, et interdum enim rutrum id.</p>
+      </div>
+    </div>
+  </div>
+</script>
+
 <script type="text/template" id="form-login-template">
-	<h2 class="text-center title-login">Login</h2>
-  <form class="form-horizontal wow fadeInUp">
-    <div class="form-group">
-      <label>Email</label>
-      <input class="form-control input-lg input-login" id="login-email" type="email">
+	<div class="container container-main">
+    <div class="row">
+      <div class="col-md-4 col-md-offset-4 col-sm-4 col-sm-offset-4 container-form">
+        <h2 class="text-center title-login">Login</h2>
+        <form class="form-horizontal wow fadeInUp">
+          <div class="form-group">
+            <label>Email</label>
+            <input class="form-control input-lg input-login" id="login-email" type="email">
+          </div>
+          <div class="form-group">
+            <label>Password</label>
+            <input class="form-control input-lg input-login" id="login-password" type="password">
+          </div>
+          <div class="form-group">
+            <button type="button" class="btn btn-primary input-lg btn-form-login">Login</button>
+            <p class = "text-center sign-up-text">Don't have an account? Sign up <span><a href = "/register">here!</a></span></p>
+            <p class="text-center register-error"></p>
+          </div>
+        </form>
+      </div>
     </div>
-    <div class="form-group">
-      <label>Password</label>
-      <input class="form-control input-lg input-login" id="login-password" type="password">
-    </div>
-    <div class="form-group">
-      <button type="button" class="btn btn-primary input-lg btn-form-login">Login</button>
-      <p class = "text-center sign-up-text">Don't have an account? Sign up <span><a href = "/register">here!</a></span></p>
-      <p class="text-center register-error"></p>
-    </div>
-  </form>
+  </div>
 </script>
 
 <script type="text/template" id="form-register-template">
-	<h2 class="text-center title-register">Register</h2>
-  <form class="form-horizontal wow fadeInUp">
-    <div class="form-group">
-      <label>Username</label>
-      <input class="form-control input-lg input-register" id="register-username" type="text">
+  <div class="container container-main">
+    <div class="row">
+      <div class="col-md-4 col-md-offset-4 col-sm-4 col-sm-offset-4 container-form">
+      	<h2 class="text-center title-register">Register</h2>
+        <form class="form-horizontal wow fadeInUp">
+          <div class="form-group">
+            <label>Username</label>
+            <input class="form-control input-lg input-register" id="register-username" type="text">
+          </div>
+          <div class="form-group">
+            <label>Email</label>
+            <input class="form-control input-lg input-register" id="register-email" type="email">
+          </div>
+          <div class="form-group">
+            <label>Password</label>
+            <input class="form-control input-lg input-register" id="register-password" type="password">
+          </div>
+          <div class="form-group">
+            <button type="button" class="btn btn-primary input-lg btn-form-register">Register</button>
+            <p class="text-center register-error"></p>
+          </div>
+        </form>
+      </div>
     </div>
-    <div class="form-group">
-      <label>Email</label>
-      <input class="form-control input-lg input-register" id="register-email" type="email">
-    </div>
-    <div class="form-group">
-      <label>Password</label>
-      <input class="form-control input-lg input-register" id="register-password" type="password">
-    </div>
-    <div class="form-group">
-      <button type="button" class="btn btn-primary input-lg btn-form-register">Register</button>
-      <p class="text-center register-error"></p>
-    </div>
-  </form>
+  </div>
 </script>
 
 
@@ -51,4 +77,5 @@
 <script src = "./../../js/models/user.js"></script>
 <script src = "./../../js/collections/users.js"></script>
 <script src = "./../../js/views/app.Auth.js"></script>
+<script src = "./../../js/routers/router.js"></script>
 <script src = "./../../js/main.js"></script>

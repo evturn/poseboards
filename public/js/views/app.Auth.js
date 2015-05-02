@@ -4,19 +4,28 @@ app.Auth = Backbone.View.extend({
 	el: '.app-container',
 	loginTemplate: _.template($('#form-login-template').html()),
 	registerTemplate: _.template($('#form-register-template').html()),
+	homeTemplate: _.template($('#home-template').html()),
 	events: {
 		'click .btn-form-register' 	: 'register',
 		'click .btn-form-login'			: 'login',
 		'click .btn-nav-login'			: 'loginForm',
 		'click .btn-nav-register'		: 'registerForm',
-		'click .btn-nav-logout'			: 'logout'
+		'click .btn-nav-logout'			: 'logout',
+		'click .btn-nav-home'				: 'home'
+	},
+	home: function() {
+		router.navigate('', {trigger: true});
+		$('.auth-container').html(this.homeTemplate());
+		return this;
 	},
 	registerForm: function() {
-		$('.container-form').html(this.registerTemplate());
+		router.navigate('register', {trigger: true});
+		$('.auth-container').html(this.registerTemplate());
 		return this;
 	},
 	loginForm: function() {
-		$('.container-form').html(this.loginTemplate());
+		router.navigate('login', {trigger: true});
+		$('.auth-container').html(this.loginTemplate());
 		return this;
 	},
 	register: function(e) {
