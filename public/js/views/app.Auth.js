@@ -32,6 +32,7 @@ app.Auth = Backbone.View.extend({
 		e.preventDefault();	
 		var email 	 = $('#register-email').val();
 		var password = $('#register-password').val();
+		var $error   = $('.register-error');
 		var user = ref.createUser({
 			email: email,
 			password: password
@@ -40,15 +41,15 @@ app.Auth = Backbone.View.extend({
 		    switch (error.code) {
 		      case "EMAIL_TAKEN":
 		        console.log("The new user account cannot be created because the email is already in use.");
-		        $('.register-error').text("The new user account cannot be created because the email is already in use.")
+		        $error.text("The new user account cannot be created because the email is already in use.")
 		        break;
 		      case "INVALID_EMAIL":
 		        console.log("The specified email is not a valid email.");
-		        $('.register-error').text("The specified email is not a valid email.")
+				  $error.text("The specified email is not a valid email.")
 		        break;
 		      default:
 		        console.log("Error creating user:", error);
-		        $('.register-error').text("Error creating user")
+				  $error.text("Error creating user")
 		    }
 		  } else {
 		    console.log("Successfully created user account with uid:", userData.uid);

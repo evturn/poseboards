@@ -15,16 +15,16 @@ ref.onAuth(function(authData) {
   if (authData) {
     console.log("Authenticated with uid:", authData.uid);
 	  var username = checkValue(authData.uid);
-    $('.btn-nav-logout').show();
+    $('.btn-nav-logout').text('Logout');
     $('.btn-nav-profile').show();
-    $('.btn-nav-register').hide();
-    $('.btn-nav-login').hide();
+    $('.btn-nav-register').text('');
+    $('.btn-nav-login').text('');
   } else {
     console.log("Client unauthenticated.");
-    $('.btn-nav-profile').hide();
-    $('.btn-nav-logout').hide();
-    $('.btn-nav-login').show();
-    $('.btn-nav-register').show();
+	  $('.btn-nav-logout').text('');
+	  $('.btn-nav-profile').hide();
+  	$('.btn-nav-login').text('Login');
+	$('.btn-nav-register').text('Register');
   }
 });
 
