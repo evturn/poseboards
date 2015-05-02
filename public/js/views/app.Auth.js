@@ -86,6 +86,7 @@ app.Auth = Backbone.View.extend({
 		window.location = '/profile';
 	},
 	logout: function() {
+		console.log('you see me?');
 		ref.unauth();
 		window.location = '/';
 	},
