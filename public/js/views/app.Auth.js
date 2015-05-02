@@ -7,11 +7,11 @@ app.Auth = Backbone.View.extend({
 	homeTemplate: _.template($('#home-template').html()),
 	events: {
 		'click .btn-form-register' 	: 'register',
-		'click .btn-form-login'			: 'login',
-		'click .btn-nav-login'			: 'loginForm',
-		'click .btn-nav-register'		: 'registerForm',
-		'click .btn-nav-logout'			: 'logout',
-		'click .btn-nav-home'				: 'home'
+		'click .btn-form-login'		: 'login',
+		'click .btn-nav-login'		: 'loginForm',
+		'click .btn-nav-register'	: 'registerForm',
+		'click .btn-nav-logout'		: 'logout',
+		'click .btn-nav-home'		: 'home'
 	},
 	home: function() {
 		router.navigate('', {trigger: true});

@@ -9,5 +9,5 @@
 }
 
 .btn-nav-logout, .btn-nav-profile, .btn-nav-login, .btn-nav-register, .btn-nav-home  {
-	cursor: pointer;
+    cursor: pointer;
 }
