@@ -18,11 +18,10 @@ header .logo {
     margin-top: 30px;
 }
 
-
 .container-main{
     background: #fff;
     margin-top: 80px;
-    padding: 0 30px 30px 30px;
+    padding: 0 20px 30px 20px;
     margin-bottom: 80px;
 }
 body{
@@ -32,7 +31,7 @@ body{
     background: #ededed;
     font-size: 13px;
 }
-h2{
+h1, h2, h3, h4, h5, h6{
     font-weight: 700;
     text-transform:uppercase;
     line-height:1.4em;

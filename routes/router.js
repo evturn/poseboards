@@ -8,26 +8,26 @@ var router = express.Router();
  */
 
 router.get('/', function(req, res){
-    res.render('pages/auth');
+    res.render('pages/jade-templates/auth');
 });
 
 /*
  Data Generated
  */
 router.get('/profile', function(req, res){
-   res.render('pages/userProfile');
+   res.render('pages/jade-templates/userProfile');
 });
 
 router.get('/gen', function(req, res){
-    res.render('pages/generatedPage');
+    res.render('pages/jade-templates/generatedPage');
 });
 
 router.get('/browse', function(req, res){
-    res.render('pages/filer');
+    res.render('pages/jade-templates/filer');
 });
 
 router.get('/upload', function(req, res){
-    res.render('pages/userUploader');
+    res.render('pages/jade-templates/userUploader');
 });
 
 module.exports = router;
