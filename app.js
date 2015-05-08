@@ -2,11 +2,12 @@ var express    			= require('express');
 var app 		 	 			= express();
 var connect    			= require('connect');
 var logger     			= require('morgan');
-var bodyParser 			= require('body-parser');
+var bodyParser      = require('body-parser');
 var parseUrlencoded = bodyParser.urlencoded({extended: false});
-var jade 		 	 			= require('jade');
-var Firebase 	 			= require('firebase');
-var routes 					= require('./routes/router.js')
+var jade 		 	    	= require('jade');
+var Firebase 	 	    = require('firebase');
+var Auth 	 	    		= require('./controllers/authentication.js');
+var routes 			    = require('./routes/router.js');
 var root     				= __dirname + '/public';
 /*
  View Engine
@@ -25,6 +26,9 @@ app.use('/profile', routes);
 app.use('/gen', routes);
 app.use('/browse', routes);
 app.use('/upload', routes);
+app.use('/api/users', routes);
+
+
 
 /**
  * Log server

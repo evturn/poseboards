@@ -1,6 +1,8 @@
 var express = require('express'),
     app = express();
 var Firebase = require('firebase');
+var bodyParser          = require('body-parser');
+var urlencodedParser    = bodyParser.urlencoded({extended: false});
 var Auth  = require('../controllers/authentication.js');
 var router = express.Router();
 
@@ -35,5 +37,13 @@ router.get('/browse', function(req, res){
          res.redirect('/');
      }
  });
+
+router.post('/api/users', urlencodedParser, function(req, res) {
+    if (!req.body) return res.sendStatus(400)
+    var request = req.body; // to be the params from search filed
+    var token = request.token;
+    console.log(token);
+    Auth.authenticate(token);
+});
 
 module.exports = router;

@@ -28,9 +28,6 @@ app.Auth = Backbone.View.extend({
 		$('.authentication-container').html(this.loginTemplate());
 		return this;
 	},
-	upload: function() {
-
-	},
 	register: function(e) {
 		e.preventDefault();	
 		var email 	 = $('#register-email').val();
@@ -82,11 +79,27 @@ app.Auth = Backbone.View.extend({
 			    $('.register-error').text("Incorrect email or password");
 			  } else {
 			    console.log("Authenticated successfully with payload:", authData);
-			 		console.log(authData.uid);
-			 		console.log(authData.token);
-			   this.findUser(authData.uid);
+				  console.log(authData.uid);
+				  console.log(authData.token);
+				  this.findUser(authData.uid);
+				  this.setUser(authData.token);
 			  }
 		}.bind(this));
+	},
+	setUser: function(data) {
+		console.log(data);
+		$.ajax({
+			url: '/api/users',
+			type: 'POST',
+			dataType: 'json',
+			data: {
+				token: data
+			},
+			success: function(data){
+				console.log(data);
+
+			}
+		});
 	},
 	findUser: function(id) {
 		console.log(id);
