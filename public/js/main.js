@@ -35,5 +35,6 @@ function checkValue(uid) {
 		var username = user.username;
   	console.log(username);
 			$('.btn-nav-profile').text(user.username);
+			$('.user-name').html(user.username)
 		});
 }
