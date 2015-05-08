@@ -88,7 +88,7 @@ app.Auth = Backbone.View.extend({
 	setUser: function(authData) {
 		self = this;
 		$.ajax({
-			url: '/api/users',
+			url: '/api/users/login',
 			type: 'POST',
 			dataType: 'json',
 			data: {

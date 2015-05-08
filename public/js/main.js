@@ -13,16 +13,17 @@ Backbone.history.start();
 
 ref.onAuth(function(authData) {
   if (authData) {
-    console.log("Authenticated with uid:", authData.uid);
+    console.log("Client authenticated: ", authData.uid);
     console.log("authData", authData);
 	  checkValue(authData.uid);
-	  serverToken(authData.token);
+	  authenticateServer(authData.token);
 		$('.btn-nav-logout').text('Logout');
 		$('.btn-nav-profile').show();
 		$('.btn-nav-register').text('');
 		$('.btn-nav-login').text('');
   } else {
-    console.log("Client unauthenticated.");
+    console.log("Client unauthenticated");
+    unauthenticateServer();
 	  $('.btn-nav-logout').text('');
 	  $('.btn-nav-profile').hide();
   	$('.btn-nav-login').text('Login');
@@ -30,18 +31,34 @@ ref.onAuth(function(authData) {
   }
 });
 
-	function serverToken(token) {
-		console.log('TOKEN: ', token);
+
+	function unauthenticateServer() {
     $.ajax({
-			url: '/api/users',
+			url: '/api/users/auth',
 			type: 'POST',
 			dataType: 'json',
 			data: {
-				token: token
+				token: null,
+				auth: false
 			},
 			success: function(data){
-				if (data.token === authData.token) {
-				}
+				console.log('Server unauthenticated ', data);
+			}
+		});
+	}
+
+	function authenticateServer(token) {
+		console.log('TOKEN: ', token);
+    $.ajax({
+			url: '/api/users/auth',
+			type: 'POST',
+			dataType: 'json',
+			data: {
+				token: token,
+				auth: true
+			},
+			success: function(data){
+				console.log('Server authenticated: ', data);
 			}
 		});
 	}
