@@ -1,35 +1,19 @@
- ----------
-|POSEBOARDS|
- -----------
-Overview: Poseboards is an Animation Database / Network for animators to upload and comment on each
-others animation.
+Free
+- Ads (Adsense, Bidvertiser) / Donations
+- User Management (What a free user can do)
+  - Post Images
+  - Upload Avatars
+  - Favorite Animators / Subscribe Animators
+  - General Info about yourself (Bio/ Website)
+  - Role ( Behind the scenes, designate if they are free or premium)
 
-=====
-Auth:
-Desc: Gets their information
-=====
-login.jade
-login.html
+User uploader  & Table Filer
+  - Width / Height of Animation
+  - Frames Per Second (FPS)
+  - Each uploaded image can get text attached to describe what it is
+  - Max of 12 frames per anim
+  - Files to table properly
 
-========
-Uploader:
-Desc: This lets the user take their animation and save it to their account / database
-========
-userUploader.jade
-userUploader.html
-
-======
-Filer:
-Desc: Files the user submitted animation into a table where others can browse through
-======
-filer.jade
-filer.html
-
-===============
-Generated Page:
-Desc: This has the animation playing from the submitted user and a space for user comments
-===============
-generatedPage.jade
-generatedPage.html
-
-fuck my ass.
+ Generate Page
+  - When you are browsing through the table and click the name of the animation it generates the page with the animation
+  - Page has animation, ui controls, ads, and comment section
