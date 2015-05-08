@@ -67,10 +67,10 @@ app.Auth = Backbone.View.extend({
       });
 	},
 	login: function(e) {
-		e.preventDefault();	
+		e.preventDefault();
 		var email 	 = $('#login-email').val();
 		var password = $('#login-password').val();
-
+		$('.form-loader').html('<img src="../imgs/dog.gif">');
 		var user = ref.authWithPassword({
 		  email    : email,
 		  password : password
@@ -78,6 +78,7 @@ app.Auth = Backbone.View.extend({
 			  if (error) {
 			    console.log("Login Failed!", error);
 			    $('.register-error').text("Incorrect email or password");
+			    $('.form-loader').html('<h2 class="title-login">Login</h2>');
 			  } else {
 			    console.log("Authenticated successfully with payload:", authData);
 				  this.setUser(authData);
@@ -85,6 +86,7 @@ app.Auth = Backbone.View.extend({
 		}.bind(this));
 	},
 	setUser: function(authData) {
+		self = this;
 		$.ajax({
 			url: '/api/users',
 			type: 'POST',
@@ -97,6 +99,7 @@ app.Auth = Backbone.View.extend({
 					window.location = '/profile'
 				} else {
 					console.log('No match');
+					self.loginForm();
 				}
 			}
 		});
