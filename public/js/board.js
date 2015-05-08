@@ -1,11 +1,12 @@
 /*
  Get Canvas Element
  */
-var canvas = document.getElementById("uploadedAnim");
+var canvas = document.getElementById("uploadedAnimation");
 /*
  Context of the Canvas
  */
 var ctx = canvas.getContext("2d");
+console.log(ctx);
 /*
  Frames Per Second of Animation, 10 is default
  */
@@ -14,11 +15,8 @@ var fps = (1000 / 10);
  Define the image
  */
 var image = new Image();
-image.src = '/imgs/sprite.png';
+image.src = '../../imgs/sprite.png';
 
-
-
-//'sprite.png'
 
 /*
  Require Animation.js
