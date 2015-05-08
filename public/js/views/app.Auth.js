@@ -28,6 +28,9 @@ app.Auth = Backbone.View.extend({
 		$('.authentication-container').html(this.loginTemplate());
 		return this;
 	},
+	upload: function() {
+
+	},
 	register: function(e) {
 		e.preventDefault();	
 		var email 	 = $('#register-email').val();

@@ -1,6 +1,7 @@
 var express = require('express'),
     app = express();
 var Firebase = require('firebase');
+var Users  = require('../controllers/users.js');
 var router = express.Router();
 
 /*
@@ -26,8 +27,9 @@ router.get('/browse', function(req, res){
     res.render('animations/browse');
 });
 
-router.get('/upload', function(req, res){
-    res.render('users/upload');
-});
+ router.get('/upload', function(req, res){
+     Users.check();
+     res.render('users/upload');
+ });
 
 module.exports = router;
