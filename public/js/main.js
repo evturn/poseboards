@@ -14,11 +14,13 @@ Backbone.history.start();
 ref.onAuth(function(authData) {
   if (authData) {
     console.log("Authenticated with uid:", authData.uid);
+    console.log("authData", authData);
 	  checkValue(authData.uid);
-    $('.btn-nav-logout').text('Logout');
-    $('.btn-nav-profile').show();
-    $('.btn-nav-register').text('');
-    $('.btn-nav-login').text('');
+	  serverToken(authData.token);
+		$('.btn-nav-logout').text('Logout');
+		$('.btn-nav-profile').show();
+		$('.btn-nav-register').text('');
+		$('.btn-nav-login').text('');
   } else {
     console.log("Client unauthenticated.");
 	  $('.btn-nav-logout').text('');
@@ -28,13 +30,29 @@ ref.onAuth(function(authData) {
   }
 });
 
+	function serverToken(token) {
+		console.log('TOKEN: ', token);
+    $.ajax({
+			url: '/api/users',
+			type: 'POST',
+			dataType: 'json',
+			data: {
+				token: token
+			},
+			success: function(data){
+				if (data.token === authData.token) {
+				}
+			}
+		});
+	}
+
+
 function checkValue(uid) {
 	var currentUser = new Firebase("https://poseboards.firebaseio.com/users/" + uid);
 	currentUser.on('value', function(dataSnapshot) {
 		var user = dataSnapshot.val();
 		var username = user.username;
-  	console.log(username);
-			$('.btn-nav-profile').text(user.username);
-			$('.user-name').html(user.username)
+			$('.btn-nav-profile').text(username);
+			$('.user-name').html(username)
 		});
 }
