@@ -24,28 +24,27 @@ FileReaderJS.setupInput(document.getElementById('input-animation-upload'), {
       };
       img.src = e.target.result;
       var binaryString = btoa(e.target.result);
+      addImage(binaryString);
     }
   }
 });
 
 
 
-	function addImage() {
+	function addImage(string) {
 		var authData = ref.getAuth();
 		var uid = authData.uid;
 		var location = new Firebase("https://poseboards.firebaseio.com/users/" + uid + '/animations');
-		var string = 'Dudeman Jones';
-		var encodedString = Base64.encode(string);
-		console.log(encodedString);
+		console.log(string);
 		location.push({
 			fps: 26,
-			height: '100px',
-			widht: '400px',
-			name: 'Pig Walk',
-			image: encodedString,
+			height: 100,
+			widht: 100,
+			name: 'Ev',
+			image: string,
 			date: Firebase.ServerValue.TIMESTAMP
 		});
-		var decodedString = Base64.decode(encodedString);
+		var decodedString = Base64.decode(string);
 		console.log(decodedString);
 
 	}
