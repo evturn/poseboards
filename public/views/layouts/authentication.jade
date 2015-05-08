@@ -1,0 +1,13 @@
+doctype html
+html(lang='en')
+  head
+    include ../dependencies/stylesheets.html
+    include ../partials/_header.html
+  body.app-container
+    include ../partials/_navbar.html
+    .container
+      .row
+      .col-md-12
+        block auth
+    inlcude ../client-templates/all
+    include ../dependencies/javascripts.html

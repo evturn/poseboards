@@ -24,7 +24,7 @@ ref.onAuth(function(authData) {
 	  $('.btn-nav-logout').text('');
 	  $('.btn-nav-profile').hide();
   	$('.btn-nav-login').text('Login');
-	$('.btn-nav-register').text('Register');
+		$('.btn-nav-register').text('Register');
   }
 });
 
