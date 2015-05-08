@@ -6,7 +6,7 @@ var canvas = document.getElementById("uploadedAnimation");
  Context of the Canvas
  */
 var ctx = canvas.getContext("2d");
-console.log(ctx);
+// console.log(ctx);
 /*
  Frames Per Second of Animation, 10 is default
  */
