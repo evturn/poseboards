@@ -80,32 +80,26 @@ app.Auth = Backbone.View.extend({
 			    $('.register-error').text("Incorrect email or password");
 			  } else {
 			    console.log("Authenticated successfully with payload:", authData);
-				  this.setUser(authData.token);
-				  this.findUser(authData.uid);
+				  this.setUser(authData);
 			  }
 		}.bind(this));
 	},
-	setUser: function(data) {
+	setUser: function(authData) {
 		$.ajax({
 			url: '/api/users',
 			type: 'POST',
 			dataType: 'json',
 			data: {
-				token: data
+				token: authData.token
 			},
 			success: function(data){
-				console.log(data);
-
+				if (data.token === authData.token) {
+					window.location = '/profile'
+				} else {
+					console.log('No match');
+				}
 			}
 		});
-	},
-	findUser: function(id) {
-		console.log(id);
-		var ref = new Firebase("https://poseboards.firebaseio.com/users");
-		ref.on('value', function(dataSnapshot) {
-			var currentUser = dataSnapshot.val();
-		});
-		window.location = '/profile';
 	},
 	logout: function() {
 		console.log('you see me?');

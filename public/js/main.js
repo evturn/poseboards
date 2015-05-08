@@ -14,7 +14,7 @@ Backbone.history.start();
 ref.onAuth(function(authData) {
   if (authData) {
     console.log("Authenticated with uid:", authData.uid);
-	  var username = checkValue(authData.uid);
+	  checkValue(authData.uid);
     $('.btn-nav-logout').text('Logout');
     $('.btn-nav-profile').show();
     $('.btn-nav-register').text('');
