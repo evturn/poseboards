@@ -40,9 +40,8 @@ router.get('/browse', function(req, res){
 
 router.post('/api/users', urlencodedParser, function(req, res) {
     if (!req.body) return res.sendStatus(400)
-    var request = req.body; // to be the params from search filed
+    var request = req.body;
     var token = request.token;
-    console.log(token);
     Auth.authenticate(token);
 });
 

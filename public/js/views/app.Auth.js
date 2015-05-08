@@ -49,21 +49,22 @@ app.Auth = Backbone.View.extend({
 		        break;
 		      default:
 		        console.log("Error creating user:", error);
-				  $error.text("Error creating user")
+				  	$error.text("Error creating user")
 		    }
 		  } else {
 		    console.log("Successfully created user account with uid:", userData.uid);
-		    var username = $('#register-username').val();
-		    var ref = new Firebase("https://poseboards.firebaseio.com/users/" + userData.uid);
-		    var user = ref.push({
-		    	username: username,
-		    	email: email,
-		    	password: password
-		    });
-		    console.log(user.key());
+		    var uid = userData.uid
+		    this.registerio(email, uid);
 		    this.loginForm();
 		  }
 		}.bind(this))
+	},
+	registerio: function(email, uid) {
+		var $username = $('#register-username').val();
+		ref.child('users').child(uid).set({
+        username: $username,
+        email: email
+      });
 	},
 	login: function(e) {
 		e.preventDefault();	
@@ -79,15 +80,12 @@ app.Auth = Backbone.View.extend({
 			    $('.register-error').text("Incorrect email or password");
 			  } else {
 			    console.log("Authenticated successfully with payload:", authData);
-				  console.log(authData.uid);
-				  console.log(authData.token);
-				  this.findUser(authData.uid);
 				  this.setUser(authData.token);
+				  this.findUser(authData.uid);
 			  }
 		}.bind(this));
 	},
 	setUser: function(data) {
-		console.log(data);
 		$.ajax({
 			url: '/api/users',
 			type: 'POST',

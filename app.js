@@ -28,8 +28,6 @@ app.use('/browse', routes);
 app.use('/upload', routes);
 app.use('/api/users', routes);
 
-
-
 /**
  * Log server
  */
