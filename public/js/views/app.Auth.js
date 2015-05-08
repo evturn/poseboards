@@ -6,7 +6,7 @@ app.Auth = Backbone.View.extend({
 	registerTemplate: _.template($('#form-register-template').html()),
 	homeTemplate: _.template($('#home-template').html()),
 	events: {
-		'click .btn-form-register': 'register',
+		'click .btn-form-register'	: 'register',
 		'click .btn-form-login'		: 'login',
 		'click .btn-nav-login'		: 'loginForm',
 		'click .btn-nav-register'	: 'registerForm',

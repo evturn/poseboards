@@ -1,7 +1,7 @@
 var express = require('express'),
     app = express();
 var Firebase = require('firebase');
-var Users  = require('../controllers/users.js');
+var Auth  = require('../controllers/authentication.js');
 var router = express.Router();
 
 /*
@@ -28,8 +28,12 @@ router.get('/browse', function(req, res){
 });
 
  router.get('/upload', function(req, res){
-     Users.check();
-     res.render('users/upload');
+     var authState = Auth.authenticate();
+     if (authState) {
+         res.render('users/upload');
+     } else {
+         res.redirect('/');
+     }
  });
 
 module.exports = router;
