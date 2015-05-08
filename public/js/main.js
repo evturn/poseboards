@@ -14,8 +14,7 @@ Backbone.history.start();
 ref.onAuth(function(authData) {
   if (authData) {
     console.log("Client authenticated: ", authData.uid);
-    console.log("authData", authData);
-	  checkValue(authData.uid);
+	  currentUser(authData.uid);
 	  authenticateServer(authData.token);
 		$('.btn-nav-logout').text('Logout');
 		$('.btn-nav-profile').show();
@@ -48,7 +47,6 @@ ref.onAuth(function(authData) {
 	}
 
 	function authenticateServer(token) {
-		console.log('TOKEN: ', token);
     $.ajax({
 			url: '/api/users/auth',
 			type: 'POST',
@@ -64,7 +62,7 @@ ref.onAuth(function(authData) {
 	}
 
 
-function checkValue(uid) {
+function currentUser(uid) {
 	var currentUser = new Firebase("https://poseboards.firebaseio.com/users/" + uid);
 	currentUser.on('value', function(dataSnapshot) {
 		var user = dataSnapshot.val();

@@ -98,14 +98,12 @@ app.Auth = Backbone.View.extend({
 				if (data.token === authData.token) {
 					window.location = '/profile'
 				} else {
-					console.log('No match');
 					self.loginForm();
 				}
 			}
 		});
 	},
 	logout: function() {
-		console.log('you see me?');
 		ref.unauth();
 		window.location = '/';
 	},
