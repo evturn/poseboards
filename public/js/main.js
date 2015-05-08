@@ -29,7 +29,8 @@ addImage();
 			height: '100px',
 			widht: '400px',
 			name: 'Pig Walk',
-			image: encodedString
+			image: encodedString,
+			date: Firebase.ServerValue.TIMESTAMP
 		});
 		var decodedString = Base64.decode(encodedString);
 		console.log(decodedString);
