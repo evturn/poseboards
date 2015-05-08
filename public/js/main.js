@@ -32,14 +32,8 @@ function checkValue(uid) {
 	var currentUser = new Firebase("https://poseboards.firebaseio.com/users/" + uid);
 	currentUser.on('value', function(dataSnapshot) {
 		var user = dataSnapshot.val();
-		for (var prop in user) {
-  		var key = prop;
-  	}
-  	console.log(key);
-	  var generatedUser = new Firebase("https://poseboards.firebaseio.com/users/" + uid + '/' + key + '/');
-	  generatedUser.on('value', function(dataSnapshot) {
-			var user = dataSnapshot.val();
-			$('.btn-nav-profile').html(user.username);
+		var username = user.username;
+  	console.log(username);
+			$('.btn-nav-profile').text(user.username);
 		});
-	});
 }
