@@ -24,18 +24,17 @@ FileReaderJS.setupInput(document.getElementById('input-animation-upload'), {
       };
       img.src = e.target.result;
       var binaryString = btoa(e.target.result);
-      addImage(binaryString);
+      saveAnimation(binaryString);
     }
   }
 });
 
 
 
-	function addImage(string) {
+	function saveAnimation(string) {
 		var authData = ref.getAuth();
 		var uid = authData.uid;
 		var location = new Firebase("https://poseboards.firebaseio.com/users/" + uid + '/animations');
-		console.log(string);
 		location.push({
 			fps: 26,
 			height: 100,
@@ -44,12 +43,19 @@ FileReaderJS.setupInput(document.getElementById('input-animation-upload'), {
 			image: string,
 			date: Firebase.ServerValue.TIMESTAMP
 		});
-		var decodedString = Base64.decode(string);
-		console.log(decodedString);
-
 	}
 
+getAnimations();
 
+function getAnimations() {
+	var authData = ref.getAuth();
+	var uid = authData.uid;
+	var location = new Firebase("https://poseboards.firebaseio.com/users/" + uid + '/animations');
+	location.on('child_added', function(dataSnapshot) {
+		console.log(dataSnapshot.val());
+	});
+	// var decodedString = Base64.decode(string);
+}
 ref.onAuth(function(authData) {
   if (authData) {
     console.log("Client authenticated: ", authData.uid);
