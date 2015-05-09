@@ -29,21 +29,19 @@ FileReaderJS.setupInput(document.getElementById('input-animation-upload'), {
   }
 });
 
-
-
-	function saveAnimation(string) {
-		var authData = ref.getAuth();
-		var uid = authData.uid;
-		var location = new Firebase("https://poseboards.firebaseio.com/users/" + uid + '/animations');
-		location.push({
-			fps: 26,
-			height: 100,
-			widht: 100,
-			name: 'Ev',
-			image: string,
-			date: Firebase.ServerValue.TIMESTAMP
-		});
-	}
+function saveAnimation(string) {
+	var authData = ref.getAuth();
+	var uid = authData.uid;
+	var location = new Firebase("https://poseboards.firebaseio.com/users/" + uid + '/animations');
+	location.push({
+		fps: 26,
+		height: 100,
+		widht: 100,
+		name: 'Ev',
+		image: string,
+		date: Firebase.ServerValue.TIMESTAMP
+	});
+}
 
 getAnimations();
 
@@ -58,22 +56,25 @@ function getAnimations() {
 		img.src = Base64.decode(snap.image);
 	});
 }
+
+
+
 ref.onAuth(function(authData) {
   if (authData) {
     console.log("Client authenticated: ", authData.uid);
 	  currentUser(authData.uid);
 	  authenticateServer(authData.token);
-		$('.btn-nav-logout').text('Logout');
-		$('.btn-nav-profile').show();
-		$('.btn-nav-register').text('');
-		$('.btn-nav-login').text('');
+		$('.btn-nav-logout').css({visibility: 'visible'});
+		$('.btn-nav-profile').css({visibility: 'visible'});
+		$('.btn-nav-register').css({visibility: 'hidden'});
+		$('.btn-nav-login').css({visibility: 'hidden'});
   } else {
     console.log("Client unauthenticated");
     unauthenticateServer();
-	  $('.btn-nav-logout').text('');
-	  $('.btn-nav-profile').hide();
-  	$('.btn-nav-login').text('Login');
-		$('.btn-nav-register').text('Register');
+	  $('.btn-nav-logout').css({visibility: 'hidden'});
+	  $('.btn-nav-profile').css({visibility: 'hidden'});
+  	$('.btn-nav-login').css({visibility: 'visible'});
+		$('.btn-nav-register').css({visibility: 'visible'});
   }
 });
 
@@ -112,7 +113,7 @@ function currentUser(uid) {
 	currentUser.on('value', function(dataSnapshot) {
 		var user = dataSnapshot.val();
 		var username = user.username;
-			$('.btn-nav-profile').text(username);
-			$('.user-name').html(username)
-		});
+		$('.btn-nav-profile').text(username);
+		$('.user-name').html(username)
+	});
 }
