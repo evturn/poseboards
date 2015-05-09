@@ -52,9 +52,11 @@ function getAnimations() {
 	var uid = authData.uid;
 	var location = new Firebase("https://poseboards.firebaseio.com/users/" + uid + '/animations');
 	location.on('child_added', function(dataSnapshot) {
-		console.log(dataSnapshot.val());
+		var snap = dataSnapshot.val();
+		var img = new Image();
+		document.getElementById('hello').appendChild(img);
+		img.src = Base64.decode(snap.image);
 	});
-	// var decodedString = Base64.decode(string);
 }
 ref.onAuth(function(authData) {
   if (authData) {
